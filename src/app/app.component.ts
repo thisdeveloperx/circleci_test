@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
           borderWidth: 1
         }]
       },
-      options: {        
+      options: {
         scales: {
           yAxes: [{
             ticks: {
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
     const ctx = (document.getElementById('myChart2') as HTMLCanvasElement).getContext('2d');
     const myChart = new Chart(ctx, {
       type: 'line',
-      // plugins: [ChartDataLabels],      
+      // plugins: [ChartDataLabels],
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
           borderWidth: 1
         }]
       },
-      options: {        
+      options: {
         scales: {
           yAxes: [{
             ticks: {

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GenericTableComponent } from './generic-table.component';
+import { MatTableModule } from '@angular/material/table';
 
 describe('GenericTableComponent', () => {
   let component: GenericTableComponent;
@@ -8,6 +9,7 @@ describe('GenericTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MatTableModule ],
       declarations: [ GenericTableComponent ]
     })
     .compileComponents();

@@ -28,19 +28,19 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class GenericTableComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-  
+
   min = 60;
-  
+
   max = 600;
-  
+
   step = 10;
-  
+
   width = 100;
 
   startX: number;
 
-  offsetValue: number = 0;
-  
+  offsetValue = 0;
+
   get colWidth(): string {
     return `${this.width}px`;
   }
@@ -53,14 +53,14 @@ export class GenericTableComponent implements OnInit {
 
   @ViewChild('range')
   set slider(v) {
-    setTimeout(() => { 
+    setTimeout(() => {
       this.rangeEl = v.nativeElement;
      }, 0);
   }
 
   @ViewChild('column')
   set column(v) {
-    setTimeout(() => { 
+    setTimeout(() => {
       this.columnEl = v.nativeElement;
      }, 0);
   }
@@ -92,7 +92,7 @@ export class GenericTableComponent implements OnInit {
   }
 
   onMouseMove = (e) => {
-    if(this.isActive){
+    if (this.isActive) {
       const width  = e.pageX - this.startX;
       this.offsetValue = width < 0 ? 0 : width;
       // this.width+= width;
