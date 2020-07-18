@@ -15,7 +15,7 @@ jobs:
           key: circleci_test-{{ .Branch }}-{{ checksum "package-lock.json"}}
           paths:
             - "nodes_modules"
-      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - run: npm run test -- --no-watch --no-progress
 workflows:
     build-and-test:
       jobs:
