@@ -3,14 +3,19 @@ orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    executor:
-      name: node/default
+    working_directory: ~/circleci_test
+    docker:
+      - image: circleci/node:12-browsers
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - restore_cache:
+          key: circleci_test-{{ .Branch }}-{{ checksum "package-lock.json"}}
+      - run: npm install
+      - save_cache:
+          key: circleci_test-{{ .Branch }}-{{ checksum "package-lock.json"}}
+          paths:
+            - "nodes_modules"
+      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 workflows:
     build-and-test:
       jobs:
